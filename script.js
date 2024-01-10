@@ -21,12 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const daysInMonth = new Date(year, month + 1, 0).getDate();
       const firstDay = new Date(year, month, 1).getDay();
 
+      const monthContainer = document.createElement("div");
+      monthContainer.classList.add("month-container");
+      calendarContainer.appendChild(monthContainer);
+
       const monthDiv = document.createElement("div");
       monthDiv.classList.add("month");
       monthDiv.textContent = new Intl.DateTimeFormat("en-US", {
         month: "long",
       }).format(new Date(year, month));
-      calendarContainer.appendChild(monthDiv);
 
       const table = document.createElement("table");
       const trHeader = document.createElement("tr");
@@ -59,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
           dayCounter = 0;
         }
       }
-
       table.appendChild(tr);
-      calendarContainer.appendChild(table);
+      monthContainer.appendChild(monthDiv);
+      monthContainer.appendChild(table);
     }
   }
 
