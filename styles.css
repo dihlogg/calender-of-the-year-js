@@ -97,6 +97,9 @@ td {
     background-color: grey;
     color: white;
 }
+td:empty {
+    opacity: 0;
+  }
 tr {
     display: flex;
     flex-wrap: wrap;
